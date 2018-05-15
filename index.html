@@ -26,18 +26,16 @@
     </label>
     <br />
 
-    <button onclick="prepare_download()">Download Graph</button>
+    <button onclick="$('#display').social_cartography('prepare_download');">Download Graph</button>
     |
     <input type="file" id="upload">
-    <button id="confirm-upload">Import graph</button>
+    <button onclick="$('#display').social_cartography('import');">Import graph</button>
     
     
     <script type="text/javascript">
 
       cube_options = {cube: {color: 0x000000, size: 10}};
       $('#display').social_cartography({width: 1000, height: 750, background: 0xffffff});
-      
-      
       
     </script>
   </body>
