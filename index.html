@@ -3,18 +3,22 @@
   <head>
     <meta charset="utf-8">
     <title>FourD Test Page</title>
+    
     <link rel="stylesheet" href="lib/jquery.contextMenu.min.css">
-    <script src="lib/r90.three.min.js"></script>
-    <script src="lib/OrbitControls.js"></script>
-    <script src="lib/jquery-1.11.3.min.js"></script>
-    <script src="lib/fourd.js"></script>
-    <script src="lib/jquery-ui.min.js"></script>
-    <script src="lib/jquery.fourd.js"></script>
-    <script src="lib/jquery.contextMenu.min.js"></script>
-    <script src="lib/download2.js"></script>
+    
+    <script type="text/javascript" src="lib/r90.three.min.js"></script>
+    <script type="text/javascript" src="lib/OrbitControls.js"></script>
+    <script type="text/javascript" src="lib/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="lib/jquery.contextMenu.min.js"></script>
+    <script type="text/javascript" src="lib/download2.js"></script>
+    <script type="text/javascript" src="lib/fourd.js"></script>
+    <script type="text/javascript" src="lib/jquery.fourd.js"></script>
+    <script type="text/javascript" src="lib/jquery.social-cartography.js"></script>
   </head>
   <body>
     <div id="display"></div>
+    
     <label for="display">
       Drag the left mouse button to rotate. 
       Scroll to zoom. 
@@ -28,205 +32,10 @@
     <button id="confirm-upload">Import graph</button>
     
     
-    <script>
+    <script type="text/javascript">
 
       cube_options = {cube: {color: 0x000000, size: 10}};
-      
-      $('#display').fourd({width: 1000, height: 500, background: 0xffffff});
-      var fourd = $('#display').fourd('underlying_object');
-        
-      var awaiting_vertex = false;
-      var vertex_promise = null;
-      var selected = null;
-      var second = null;
-      var first = null;
-      var on_mousedown = function(event){
-        selected = fourd.resolve_click(event);
-      };
-        
-      var on_mousedown_select_second = function(event){
-        first = selected;
-        second = fourd.resolve_click(event);
-        if(first && second){
-          fourd.graph.add_edge(first, second);  
-        }
-        $('#display').off('mousedown', on_mousedown_select_second);
-        $('#display').on('mousedown', on_mousedown);
-      }
-      
-      var add_vertex = function(){
-        var url = prompt('Image URL (leave blank for black):', 'https://example.com/image.png')
-      }
-      
-      // leave this global
-      prepare_download = function(){
-        var output = {vertices: [], edges: []};
-        for(var i in fourd.graph.V){
-          var vertex = fourd.graph.V[i];
-          output.vertices.push({
-            id: vertex.id, 
-            cube: {
-              texture: vertex.options.cube.texture, 
-              color: vertex.options.cube.color, 
-              size: vertex.options.cube.size
-            },
-            label: {
-              text: vertex.options.label.text
-            }
-          });
-        }
-        for(var i in fourd.graph.E){
-          var edge = fourd.graph.E[i];
-          output.edges.push([edge.source.id, edge.target.id]);
-        }
-        
-        download(JSON.stringify(output), prompt('Enter a filename:', 'graph.sc.json'));
-      };
-        
-      upload = function(){
-        var input = document.getElementById('upload').files[0];
-        var reader = new FileReader();
-        reader.readAsText(input);
-        reader.onload = function(e){
-          input = reader.result;
-          input = JSON.parse(input);
-          var imported_vertices = new Map();
-            
-          for(var i=0; i<input.vertices.length; i++){
-            var vertex_spec = input.vertices[i];
-            imported_vertices.set(vertex_spec.id, fourd.graph.add_vertex(vertex_spec));
-          }
-  
-          for(var i=0; i<input.edges.length; i++){
-            var edge_spec = input.edges[i];
-            fourd.graph.add_edge(imported_vertices.get(edge_spec[0]), imported_vertices.get(edge_spec[1]));
-          }
-        };
-      };
-      $('#confirm-upload').on('click', upload);
-      
-        
-      $('#display').on('mousedown', on_mousedown);
-      
-      $.contextMenu({
-        selector: '#display',
-        callback: function(key, options, rootMenu, originalEvent){
-          
-          if(key === 'add_person'){
-            var person_name = 
-            fourd.graph.add_vertex
-            
-            return;
-          }
-          
-          var groups = {};
-          if(key === 'add_group'){
-            return;
-          }
-          
-          if(key === 'add_vertex'){
-            fourd.graph.add_vertex(cube_options);
-            return;
-          }
-            
-          if(key === 'add_picture_vertex'){
-            fourd.graph.add_vertex({
-              cube: {
-                size: 10,
-                texture: prompt('Picture url:', 'https://example.com/image.png')
-              }
-            });
-            return;
-          }
-            
-          if(key === 'add_adjacent_vertex' && selected){
-            fourd.graph.add_edge(selected, fourd.graph.add_vertex(cube_options));
-            return;
-          }
-
-          if(key === 'add_adjacent_picture_vertex'){
-            fourd.graph.add_edge(
-              selected, 
-              fourd.graph.add_vertex({
-                cube: {
-                  size: 10, 
-                  texture: prompt('picture url', 'https://example.com/image.png')
-                }
-              })
-            );
-            return;
-          }
-          
-          if(key === 'recursify_upwards'){
-            
-          }
-            
-          if(key === "remove_vertex"){
-            fourd.graph.remove_vertex(selected);
-            return;
-          }
-            
-          if(key === "add_edge"){
-            $('#display').off('mousedown', on_mousedown);
-            $('#display').on('mousedown', on_mousedown_select_second);
-            return;
-          }
-          
-          var choice = function(map){
-            var items = [];
-            for(var item in map){
-              if(map[item]){
-                items.push(map[item]);
-              }
-            }
-            return items[Math.floor(items.length * Math.random())];
-          };
-          
-          if(key === "random_graph"){
-            var count = parseInt(prompt("How many"));
-            for(var i=0; i<count; i++){
-              if(Math.random() < 0.5){
-                var v = fourd.graph.add_vertex(cube_options);
-              }else{
-                var e = fourd.graph.add_edge(
-                  choice(fourd.graph.V),
-                  choice(fourd.graph.V)
-                )
-              }
-            }
-          }
-          
-          if(key === "clear_scene"){
-            fourd.clear();
-            return;
-          }
-          
-          return;
-        },
-        items: {
-          "add_vertex": {name: "Add black vertex"},
-          "add_picture_vertex": {name: "Add picture vertex"},
-          "add_adjacent_vertex": {name: "Add adjacent vertex", disabled: () => { return selected === null}},
-          "add_adjacent_picture_vertex": {name: "Add adjacent picture vertex", disabled: () => { return selected === null}},
-          "remove_vertex": {name: "Remove vertex", disabled: () => { return selected === null}},
-          "add_edge": {name: "Add edge: select another vertex", disabled: () => { return selected === null}},
-          "random_graph": {name: "Generate random graph"},
-          "clear_scene": {name: "Clear scene"}
-        }
-      });
-
-      $('#display').fourd('clear');
-      
-      vertex0 = fourd.graph.add_vertex(cube_options);
-      fourd._internals.camera.lookAt(vertex0.position);
-
-      vertex1 = fourd.graph.add_vertex(cube_options);
-      edge = fourd.graph.add_edge(vertex0, vertex1, {});
-      vertex2 = fourd.graph.add_vertex(cube_options);
-      fourd.graph.add_edge(vertex1, vertex2);
-      fourd.graph.add_edge(vertex2, vertex0);
-      
-      // less verbose
+      $('#display').social_cartography({width: 1000, height: 750, background: 0xffffff});
       
       
       
