@@ -1,0 +1,16 @@
+#info > * > input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid black;
+  width: 100%;
+}
+
+#info > * > button {
+  background: transparent;
+  border: 1px solid black;
+  width: 100%;
+}
+
+.ui-menu-item {
+  background: white;
+}

@@ -5,6 +5,8 @@
     <title>Social Cartography</title>
     
     <link rel="stylesheet" href="lib/jquery.contextMenu.min.css">
+    <link rel="stylesheet" href="lib/jquery-ui.min.css">
+    <link rel="stylesheet" href="lib/jquery.social-cartography.css">
     
     <script type="text/javascript" src="lib/r90.three.min.js"></script>
     <script type="text/javascript" src="lib/OrbitControls.js"></script>
@@ -17,7 +19,53 @@
     <script type="text/javascript" src="lib/jquery.social-cartography.js"></script>
   </head>
   <body>
-    <div id="display"></div>
+    <div id="display">
+      <div id="info" style="position: absolute;left: 0, top: 0; margin: 5px; border: 1px solid; background: rgba(0,0,0,0.125); width: 250px; height: 740px; ">
+        
+        <h3><u>Persons</u></h3>
+        <div id="persons">
+          <h4><center>New Person</center></h4>
+          <label>Name: </label><input type="text" id="person-name"><br />
+          <label>Picture: </label><input type="text" id="person-picture"><br />
+          <label>Since: </label><input id="person-since-date" type="date" /><input id="person-since-time" type="time" /><br />
+          <label>Until: </label><input id="person-until-date" type="date" /><input id="person-until-time" type="time" /><br />
+          <button id="submit-person">Enter new person</button>
+          <hr />
+          
+          <label>All: </label>
+          <ul id="persons-list" style="list-style: none;">
+            
+          </ul>
+        </div>
+        
+        <h3><u>Groups</u></h3>
+        <div id="groups">
+          <h4><center>New Group</center></h4>
+          <label>Name: </label><input type="text" id="group-name"><br />
+          <label>Picture: </label><input type="text" id="group-picture"><br />
+          <label>Since: </label><input id="group-since-date" type="date" /><input id="group-since-time" type="time" /><br />
+          <label>Until: </label><input id="group-until-date" type="date" /><input id="group-until-time" type="time" /><br />
+          <button id="submit-group">Enter new group</button>
+          <hr />
+          
+          <label>All: </label>
+          <ul id="groups-list" style="list-style: none;">
+            
+          </ul>
+          
+        </div>
+        
+        <!--
+        <h3><u>Roles</u></h3>
+        <div id="roles">
+          <h4><center>New Role</center></h4>
+          <label>Person name: </label><input type="text" id="role-person" /><br />
+          <label>Group name: </label><input type="text" id="role-group" /><br />
+          <button id="submit-role">Enter new role</button>
+        </div>
+        -->
+      </div>
+    </div>
     
     <label for="display">
       Drag the left mouse button to rotate. 
