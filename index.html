@@ -10,6 +10,7 @@
     
     <script type="text/javascript" src="lib/r90.three.min.js"></script>
     <script type="text/javascript" src="lib/OrbitControls.js"></script>
+    <script type="text/javascript" src="lib/THREEx.WindowResize.js"></script> 
     <script type="text/javascript" src="lib/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="lib/jquery-ui.min.js"></script>
     <script type="text/javascript" src="lib/jquery.contextMenu.min.js"></script>
@@ -17,6 +18,7 @@
     <script type="text/javascript" src="lib/fourd.js"></script>
     <script type="text/javascript" src="lib/jquery.fourd.js"></script>
     <script type="text/javascript" src="lib/jquery.social-cartography.js"></script>
+  
   </head>
   <body>
     <div id="display">
@@ -25,27 +27,21 @@
         <h3><u>Persons</u></h3>
         <div id="persons">
           <h4><center>New Person</center></h4>
-          <label>Name: </label><input type="text" id="person-name"><br />
-          <label>Picture: </label><input type="text" id="person-picture"><br />
-          <label>Since: </label><input id="person-since-date" type="date" /><input id="person-since-time" type="time" /><br />
-          <label>Until: </label><input id="person-until-date" type="date" /><input id="person-until-time" type="time" /><br />
-          <button id="submit-person">Enter new person</button>
-          <hr />
-          
-          <label>All: </label>
-          <ul id="persons-list" style="list-style: none;">
-            
-          </ul>
+          <input placeholder="A person's name..." type="text" id="person-name"><br />
+          <input placeholder="A person's picture link..." type="text" id="person-picture"><br />
+          <label>Birth date and time: </label><input id="person-since-date" type="date" /><input id="person-since-time" type="time" /><br />
+          <label>Death date and time: </label><input id="person-until-date" type="date" /><input id="person-until-time" type="time" /><br />
+          <button id="submit-person">Add person</button>
         </div>
         
         <h3><u>Groups</u></h3>
         <div id="groups">
           <h4><center>New Group</center></h4>
-          <label>Name: </label><input type="text" id="group-name"><br />
-          <label>Picture: </label><input type="text" id="group-picture"><br />
+          <input placeholder="A group's name..." type="text" id="group-name"><br />
+          <input placeholder="A group's picture link..." type="text" id="group-picture"><br />
           <label>Since: </label><input id="group-since-date" type="date" /><input id="group-since-time" type="time" /><br />
           <label>Until: </label><input id="group-until-date" type="date" /><input id="group-until-time" type="time" /><br />
-          <button id="submit-group">Enter new group</button>
+          <button id="submit-group">Add group</button>
           <hr />
           
           <label>All: </label>
