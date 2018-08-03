@@ -51,7 +51,6 @@
           
         </div>
         
-        <!--
         <h3><u>Roles</u></h3>
         <div id="roles">
           <h4><center>New Role</center></h4>
@@ -59,7 +58,6 @@
           <label>Group name: </label><input type="text" id="role-group" /><br />
           <button id="submit-role">Enter new role</button>
         </div>
-        -->
       </div>
     </div>
     
@@ -79,7 +77,7 @@
     <script type="text/javascript">
 
       cube_options = {cube: {color: 0x000000, size: 10}};
-      $('#display').social_cartography({width: 1000, height: 750, background: 0xffffff});
+      $('#display').social_cartography({width: window.innerWidth, height: window.innerHeight-100, background: 0xffffff});
       
     </script>
   </body>
