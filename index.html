@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"> 
     <title>Social Cartography</title>
     
     <link rel="stylesheet" href="lib/jquery.contextMenu.min.css">
@@ -27,21 +27,25 @@
         <h3><u>Persons</u></h3>
         <div id="persons">
           <h4><center>New Person</center></h4>
-          <input placeholder="A person's name..." type="text" id="person-name"><br />
-          <input placeholder="A person's picture link..." type="text" id="person-picture"><br />
-          <label>Birth date and time: </label><input id="person-since-date" type="date" /><input id="person-since-time" type="time" /><br />
-          <label>Death date and time: </label><input id="person-until-date" type="date" /><input id="person-until-time" type="time" /><br />
-          <button id="submit-person">Add person</button>
+          <div id="new-person">
+            <input id="person-name" placeholder="A person's name..." type="text"><br />
+            <input id="person-picture" placeholder="A person's picture link..." type="text"><br />
+            <label>Birth date: </label><input id="person-since-date" type="date" /><br />
+            <label>Death date: </label><input id="person-until-date" type="date" /><br />
+            <button id="submit-person">Add person</button>
+          </div>
         </div>
         
         <h3><u>Groups</u></h3>
-        <div id="groups">
+        <div id="groups" action="">
           <h4><center>New Group</center></h4>
-          <input placeholder="A group's name..." type="text" id="group-name"><br />
-          <input placeholder="A group's picture link..." type="text" id="group-picture"><br />
-          <label>Since: </label><input id="group-since-date" type="date" /><input id="group-since-time" type="time" /><br />
-          <label>Until: </label><input id="group-until-date" type="date" /><input id="group-until-time" type="time" /><br />
-          <button id="submit-group">Add group</button>
+          <div id="new-group">
+            <input placeholder="A group's name..." type="text" id="group-name"><br />
+            <input placeholder="A group's picture link..." type="text" id="group-picture"><br />
+            <label>Since: </label><input id="group-since-date" type="date" /><input id="group-since-time" type="time" /><br />
+            <label>Until: </label><input id="group-until-date" type="date" /><input id="group-until-time" type="time" /><br />
+            <button id="submit-group">Add group</button>
+          </div>
           <hr />
           
           <label>All: </label>
@@ -54,9 +58,11 @@
         <h3><u>Roles</u></h3>
         <div id="roles">
           <h4><center>New Role</center></h4>
-          <label>Person name: </label><input type="text" id="role-person" /><br />
-          <label>Group name: </label><input type="text" id="role-group" /><br />
-          <button id="submit-role">Enter new role</button>
+          <div id="new-role">
+            <input id="role-person"type="text" placeholder="A person's name..." /><br />
+            <input id="role-group" type="text" placeholder="A group's name..."/><br />
+            <button id="submit-role">Enter new role</button>
+          </div>
         </div>
       </div>
     </div>
