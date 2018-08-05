@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="lib/jquery.social-cartography.css">
     
     <script type="text/javascript" src="lib/r90.three.min.js"></script>
-    <!--<script type="text/javascript" src="lib/OrbitControls.js"></script>-->
-    <script type="text/javascript" src="lib/FlyControls.js"></script>
+    <script type="text/javascript" src="lib/OrbitControls.js"></script>
+    <!--<script type="text/javascript" src="lib/FlyControls.js"></script>-->
     <script type="text/javascript" src="lib/THREEx.WindowResize.js"></script> 
     <script type="text/javascript" src="lib/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="lib/jquery-ui.min.js"></script>
@@ -26,17 +26,21 @@
       <span id="info" style="position: absolute;left: 0, top: 0; margin: 5px; border: 1px solid; background: rgba(0,0,0,0.125); ">
         <!--<input id="person-name" placeholder="A person's name..." type="text"><br />
         <input id="group-name" placeholder="A group's name..." type="text" ><br />-->
-        <input id="role-description" placeholder="Person@Group..."type="text">
-        <p>Geben Sie bitte die Rolle in dem folgenden Format an: Vorname@Nachname (jetzt oder frueher), oder Vorname@Gruppe</p>
-        <p>Please enter a role in the following format: FirstName@LastName or FirstName@Group.</p>
-        <p>S'il-vous plaits, donnez une role dans le prochain format: surnom@groupe.</p>
+        <h6>Input</h6>
+        <div>
+            <input id="role-description" placeholder="Person@Group..."type="text">
+        </div>
+        <h6>Info</h6>
+        <div>
+          <p>Geben Sie bitte die Rolle in dem folgenden Format an: Vorname@Nachname (jetzt oder frueher), oder Vorname@Gruppe. Fliegen Sie mit WASD und linker Maustaste durch die Szene.</p>
+          <p>Please enter a role in the following format: FirstName@LastName or FirstName@Group. Press WASD and click left to fly through the scene.</p>
+          <p>S'il-vous plaits, donnez une role dans le prochain format: surnom@groupe. Pressez WASD et la gauche bouton de la sourir.</p>
+        </div>
       </span>
     </div>
     
     <label for="display">
-      Drag the left mouse button to rotate. 
-      Scroll to zoom. 
-      Right click in the white box.
+      
     </label>
     <br />
 
