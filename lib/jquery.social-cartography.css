@@ -1,18 +1,11 @@
-#info > * > input {
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid black;
-  width: 100%;
-}
-
-.ui-menu-item {
-  background: white;
-}
-
 html, body {
   margin: 0;
   padding: 0;
   border: 0;
 
   overflow: hidden;
+}
+
+h6 {
+  text-decoration: underline blue}
 }
