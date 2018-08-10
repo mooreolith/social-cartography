@@ -17,4 +17,5 @@ h6 {
 
 .text-label {
   color: white;
-}a
+  background-color: rgba(0, 0, 0, 0.5);
+}
