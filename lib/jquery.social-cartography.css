@@ -6,6 +6,15 @@ html, body {
   overflow: hidden;
 }
 
+body {
+  background: 0x004477;
+}
+
 h6 {
-  text-decoration: underline blue;
+  text-decoration: underline;
+  color: white;
+}
+
+.text-label {
+  color: white;
 }
