@@ -19,4 +19,10 @@ h6 {
 .text-label {
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
+  text-decoration: underline;
+}
+
+.drop-area {
+  border: 2px dashed #ccc;
+  border-radius: 20px;
 }
