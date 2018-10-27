@@ -17,6 +17,7 @@
     <script type="text/javascript" src="lib/download2.js"></script>
     <script type="text/javascript" src="lib/fourd.js"></script>
     <script type="text/javascript" src="lib/jquery.fourd.js"></script>
+    <script type="text/javascript" src="lib/input-values.jquery.js"></script>
     <script type="text/javascript" src="lib/jquery.social-cartography.js"></script>
   
   </head>
@@ -32,7 +33,7 @@
         </div>
         <h6>File</h6>
         <span id="File">
-          <button onclick="$('#display').social_cartography('prepare_download');">Download Graph</button>
+          <button onclick="$('#display').social_cartography('export');">Download Graph</button>
           |
           <input type="file" id="upload">
           <button onclick="$('#display').social_cartography('import');">Import graph</button>
@@ -47,12 +48,13 @@
     </div>
 
     <dialog id="edit-vertex">
-      <form method="dialog">
-        <p><label>Label:</label><input type="text" id="edit-vertex-name"></p>
-        <p><label>Picture:</label><input type="text" id="edit-vertex-texture"></p>
-        <p><label>From:</label><input type="date" id="edit-vertex-from"></p>
-        <p><label>Until:</label><input type="date" id="edit-vertex-until"></label></p>
+      <form id="edit-entity-form" method="dialog">
+        <p><label>Label:</label><input type="text" id="edit-vertex-name" name="name"></p>
+        <p><label>Picture:</label><input type="text" id="edit-vertex-texture" name="texture"></p>
+        <p><label>From:</label><input type="date" id="edit-vertex-from" name="from"></p>
+        <p><label>Until:</label><input type="date" id="edit-vertex-until" name="until"></p>
         <menu>
+          <button id="delete-edit-vertex">Delete</button>
           <button id="cancel-edit-vertex">Cancel</button>
           <button id="confirm-edit-vertex">Confirm</button>
         </menu>
