@@ -53,18 +53,21 @@
 
     <dialog id="edit-vertex">
       <form id="edit-entity-form" method="dialog">
-        <p><label>Label:</label><input type="text" id="edit-vertex-name" name="name"></p>
+        <p><label>Label:</label><input disabled type="text" id="edit-vertex-name" name="name"></p>
         <p><label>URL Image:</label><input type="text" id="edit-vertex-texture" name="texture"></p>
         <p><label>Picture Upload</label><input type="file" id="edit-vertex-file" name="upload"></p>
         <p><label>From:</label><input type="date" id="edit-vertex-from" name="from"></p>
         <p><label>Until:</label><input type="date" id="edit-vertex-until" name="until"></p>
         <menu>
           <!--<button id="delete-edit-vertex">Delete</button>-->
+          <button id="delete-vertex">Delete!</button>
           <button id="cancel-edit-vertex">Cancel</button>
           <button id="confirm-edit-vertex">Confirm</button>
+          
         </menu>
         <input type="hidden" value="" name="vertex-id">
       </form>
+      
     </dialog>
 
     <script type="text/javascript">
