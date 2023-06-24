@@ -6,4 +6,5 @@ There are two commands. Please forgive me my busy schedules and limited attentio
 ## Commands
 * The first command, FROM>TO (some unique text, the ">" symbol, some other unique text) creates a vertex with label FROM and connects it to another vertex, with the label TO. The edges go FROM -> TO
 * The second command SUB@SUPER creates FROM, creates TO, and creates a middle vertex "SUB@SUPER", which represents the role of sub within super. The edges go SUB -> SUB@SUPER -> SUPER.
+
 And that's it. To be honest, I'm not even sure the download function works, so don't pour too much time into this. 
